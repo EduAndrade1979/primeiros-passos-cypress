@@ -10,18 +10,8 @@ describe('Swag Labs tests', () => {
     inventoryList: '.inventory_list',
   };
 
-  // const userSuccess = {
-  //   name: 'standard_user',
-  //   password: 'secret_sauce',
-  // };
-
-  // const userFail = {
-  //   name: 'test',
-  //   password: 'test',
-  // };
-
   it('login - success', () => {
-    cy.visit('https://www.saucedemo.com/');
+    cy.visit('/');
     cy.get(selectorsList.usernameField).type(userData.userSuccess.name);
     cy.get(selectorsList.passwordField).type(userData.userSuccess.password);
     cy.get(selectorsList.loginButton).click();
@@ -30,7 +20,7 @@ describe('Swag Labs tests', () => {
   });
 
   it('login - fail', () => {
-    cy.visit('https://www.saucedemo.com/');
+    cy.visit('/');
     cy.get(selectorsList.usernameField).type(userData.userFail.name);
     cy.get(selectorsList.passwordField).type(userData.userFail.password);
     cy.get(selectorsList.loginButton).click();
