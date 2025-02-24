@@ -17,7 +17,7 @@ describe('Swag Labs tests', () => {
     saveButton: "[type='submit']",
   };
 
-  it.only('user info update - success', () => {
+  it('user info update - success', () => {
     cy.visit('/auth/login');
     cy.get(selectorsList.usernameField).type(userData.userSuccess.name);
     cy.get(selectorsList.passwordField).type(userData.userSuccess.password);
@@ -34,6 +34,7 @@ describe('Swag Labs tests', () => {
     cy.get(selectorsList.genericField).eq(6).clear().type('2025-02-24');
     cy.get(selectorsList.closeButtonDateField).click();
     cy.get(selectorsList.saveButton).eq(0).click();
+    cy.get('body').should('contain', 'Successfully Updated');
     cy.get('.oxd-toast-close');
   });
 
