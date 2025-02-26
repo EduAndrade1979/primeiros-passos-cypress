@@ -16,9 +16,19 @@ describe('Orange HRM tests', () => {
       userData.userSuccess.name,
       userData.userSuccess.password
     );
+
     dashboardPage.checkRedirectToDashboard();
+
     menuPage.selectingMyInfoPage();
-    myInfoPage.fillAndSubmitForm();
+
+    myInfoPage.fillPersonalDetails('firstname', 'middlename', 'lastname');
+    myInfoPage.fillEmployeeDetails(5150, 223, 6228, '2026-12-31');
+    myInfoPage.fillMoreDetails('1972-05-03');
+    myInfoPage.saveForm(0);
+    myInfoPage.fillCustomFields('text_field');
+    myInfoPage.saveForm(1);
+    myInfoPage.fillAttachments();
+    myInfoPage.saveForm(2);
   });
 
   it('login - fail', () => {
